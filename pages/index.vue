@@ -1,0 +1,90 @@
+<template>
+<b-container>
+  <h1 class="mb-3">Velg person</h1>
+ sfsdf   sdf  sdf  sdf fsdf   sdf s df  df s dfsdfsdfsdfsd  sdfsdfsdf  sdfsdfsdf
+  sfsdf   sdf  sdf  sdf fsdf   sdf s df  df s dfsdfsdfsdfsd  sdfsdfsdf  sdfsdfsdf
+
+  sdfsdfsd  sdf s  sdfsdf   sdfsdfsdfsdf  sdfsdfsdfsdf  sdfsdfsdfsdf  sdfsdfsdf
+  sdfsdf  sdfffffffffff  sdfsdffffffffffff  sdf sdf d fs dfsdferrrrrrrrrrrrrr
+
+  sdfsdfsd  sdf s  sdfsdf   sdfsdfsdfsdf  sdfsdfsdfsdf  sdfsdfsdfsdf  sdfsdfsdf
+  sdfsdf  sdfffffffffff  sdfsdffffffffffff  sdf sdf d fs dfsdferrrrrrrrrrrrrr
+
+
+  <h1 class="title">Speakers</h1>
+  <ul class="speakers">
+    <li v-for="speaker in people" :key="speaker._id" class="speaker">
+      <nuxt-link :to="{ path: `/speakers/${speaker.slug.current}` }">
+        <SanityImage
+          :width="256"
+          :height="256"
+          :image="speaker.image"
+          class="avatar"
+        />
+        <h2 class="name">{{ speaker.name || 'Secret speaker' }}</h2>
+      </nuxt-link>
+    </li>
+  </ul>
+
+
+  </b-container>
+
+</template>
+
+<script>
+import Logo from '~/components/Logo.vue'
+import groq from 'groq'
+import sanityClient from '~/sanityClient'
+
+const query = groq`
+  {
+    "people": *[_type == "person"]
+  }
+`
+
+
+export default {
+  components: {
+    Logo
+  },
+
+    async asyncData() {
+        return await sanityClient.fetch(query)
+    }
+
+
+}
+</script>
+
+<style>
+/*.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
+}*/
+</style>

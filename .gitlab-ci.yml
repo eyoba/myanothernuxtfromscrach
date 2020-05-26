@@ -1,0 +1,8 @@
+stages:
+  - test
+
+all_tests:
+  stage: test
+  script:
+    - npm install
+    - npm test
