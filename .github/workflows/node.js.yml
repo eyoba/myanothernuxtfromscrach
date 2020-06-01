@@ -15,7 +15,7 @@ on:
 jobs:
   build:
 
-    runs-on: node-latest
+    runs-on: node:latest
    
     steps:   
     - run: npm test
