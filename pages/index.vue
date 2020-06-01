@@ -1,6 +1,6 @@
 <template>
 <b-container>
-  <h1 class="mb-3">Velg person</h1>
+  <h1 class="mb-3">Velg person ddd</h1>
  sfsdf   sdf  sdf  sdf fsdf   sdf s df  df s dfsdfsdfsdfsd  sdfsdfsdf  sdfsdfsdf
   sfsdf   sdf  sdf  sdf fsdf   sdf s df  df s dfsdfsdfsdfsd  sdfsdfsdf  sdfsdfsdf
 
@@ -11,7 +11,7 @@
   sdfsdf  sdfffffffffff  sdfsdffffffffffff  sdf sdf d fs dfsdferrrrrrrrrrrrrr
 
 
-  <h1 class="title">Speakers</h1>
+  <h1 class="title">Speakers rrr</h1>
   <ul class="speakers">
     <li v-for="speaker in people" :key="speaker._id" class="speaker">
       <nuxt-link :to="{ path: `/speakers/${speaker.slug.current}` }">
