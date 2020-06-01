@@ -38,7 +38,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxt/http'
   ],
 
 

@@ -10,7 +10,9 @@ import  sanityClient    from 'sanityClient';*/
 test.before('Init Nuxt.js', async (t) => {
   const rootDir = resolve(__dirname, '..')
   let config = {}
-  try { config = require(resolve(rootDir, 'nuxt.config.js')) } catch (e) {}
+  try { config = require(resolve(rootDir, 'nuxt.config.js')) } catch (e) {
+    console.log('Unable to locate nuxt config!')
+  }
   config.rootDir = rootDir // project folder
   config.dev = false // production build
   config.mode = 'universal' // Isomorphic application
@@ -62,7 +64,7 @@ test('Route / exists and renders HTML with CSS applied', async (t) => {
   const window = await nuxt.renderAndGetWindow('http://localhost:4000/')
   const element = window.document.querySelector('.title')
   t.not(element, null)
-  t.log(element.textContent)
+  //t.log(element.textContent)
   t.is(element.textContent, 'Speakers')
   t.is(element.className, 'title')
   //t.is(window.getComputedStyle(element).color, 'red')
